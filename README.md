@@ -1,9 +1,15 @@
 # PesawatCollisionDetectionJava
-Merupakan sebuah tugas dari mata kuliah Pemrograman Berbasis Objek, yaitu mengaplikasikan sebuah game dengan collision detection pada web http://zetcode.com/javagames/collision/
+Merupakan sebuah tugas dari mata kuliah Pemrograman Berbasis Objek, yaitu mengaplikasikan sebuah game dengan collision detection pada web http://zetcode.com/javagames/collision/.
+
+# Pemrograman Berbasis Objek C
+## Anggota Kelompok :
+- Richard Asmarakandi - 05111940000017
+- Ahmad Syafiq Aqil Wafi - 05111940000089
+- Afifan Syafaqi Yahya - 05111940000234
 
 Berikut penjelasan mengenai setiap Class nya :
 
-1. Sprite.java
+## 1. Sprite
 
 dalam class sprite, terdapat 6 variabel, yaitu
 protected int x = yaitu posisi secara horizontal gambar yang akan di render
@@ -32,7 +38,7 @@ setter untuk isVisible sehingga bisa diatur gambar nampak atau tidak.
 yang terakhir terdapat fungsi dengan return Rectangle bernama getBounds untuk mendapatkan border
 atau sebuah kotak yang merepresentasikan panjang dan lebar gambar
 
-2. Missile.java
+## 2. Missile
 
 dalam class Missile yang merupakan child dari sprite atau gerenalization dari sprite mengandung 2
 variabel yaitu :
@@ -61,7 +67,7 @@ MISSILE_SPEED, sehingga misil tampak bergerak. lalu dalam fungsi ini juga terdap
 jika posisi misil melebihi dari lebar layar window, maka gambar akan di set/atur tidak terlihat
 sehingga seakan2 misil keluar dari layar window.
 
-3. CollisionEx.java
+## 3. CollisionEx
 dalam class CollisionEx yang memanfaatkan JFrame sebagai parent, tidak terdapat variabel lokal
 pada class ini. terdapat tiga fungsi pada class ini
 
@@ -86,7 +92,7 @@ EventQueue.invokeLater() yang bertujuan untuk memanggil fungsi yang dibutuhkan s
 dengan komponen parameter pembuatan objek baru dari class CollisionEx() dan mengatur objek
 tersebut untuk terlihat pada layar(mengubah nilai setVisible ke true)
 
-4. Alien
+## 4. Alien
 Class Alien merupakan child dari Class Sprite yang mengimplementasikan posisi x dan y nya.
 
 menggunakan atribut integer final INITIAL_X = 400 menandakan merupakan titik spawn khusus berjarak (+)400 dari garis horizontal.
@@ -98,7 +104,8 @@ menggunakan fungsi void initAliean()  tanpa parameter. fungsi ini digunakan seba
 menggunakan fungsi void move() tanpa parameter sebagai pola aktivitas class Alien.
 fungsi untuk memindahkan Alien dengan kecepatan x = -1 per frame. fungsi yang membuat gambar bergerak ke kiri sejauh 1 arah horizontal. pergerakan konstan ke kiri hingga x kurang dari 0. didalam fungsi tersebut terdapat if dengan parameter jika x kurang dar 0 maka object alien tersebut akan di set x nya kembali INITIAL_X = 400.
 
-5. SpaceShip merupakan child dari Class Sprite yang mengimplementasikan posisi x dan y nya
+## 5. SpaceShip
+SpaceShip merupakan child dari Class Sprite yang mengimplementasikan posisi x dan y nya
 
 terdapat beberapa atribut pada class SpaceShip ini yaitu integer dx dan dy yang nantinya berguna sebagai nilai variable penggerak object. terus ada array namanya missiles dengan tipe List<Missile>> sebagai array untuk menyimpen objek dari Class Missile.
 
@@ -121,3 +128,33 @@ menggunakan fungsi fire() tanpa parameter yang berguna untuk ketika onjek menemb
 
 menggunakan fungsi void keyReleased dengan parameter KeyEvent yaitu ketika tombol di keyboard terlepas. fungsi didalamnyaakan membuat nilai dx dan nilai dy menjadi 0 sehingga membuat objek SpaceShip tidak bergerak lagi
 
+
+## 6. Board
+Board Class merupakan child dari class JPanel yang mengimplementasikan interface ActionListener. Board merupakan bidang dan semua dasar yang menjalankan game ini karena di dalamnya banyak fungsi yang mengatur window, level, musuh, alien dan player. Board memiliki beberapa property penting yaitu 
+timer, spaceship, aliens, ingame, ICRAFT_X, ICRAFT_Y, B_WIDTH, B_HEIGHT, DELAY, dan POS.
+
+- timer digunakan untuk mengatur delay senilai dengan variable DELAY dari setiap frame yang di gambar (draw) setiap cycle. Semakin besar DELAY maka draw akan semakin lama setiap cycle sehingga akan terdapat effect lagging, sedangkan semakin kecil DELAY maka cycle akan semakin cepat berlalu.
+- spaceship merupakan variable untuk menyimpan variable Class SpaceShip yang merupakan player utama dari game.
+- aliens merupakan kumpulan list musuh dari variable Class Alien.
+- ingame merupakan property untuk menyimpan apakah game berjalan atau tidak.
+- ICRAFT_X, ICRAFT_Y merupakan ukuran pixel dari variable spaceship.
+- B_WIDTH, B_HEIGHT merupakan ukuran pixel dari window JPanel atau bisa dibilang ukuran window game.
+- DELAY merupakan variable untuk delay timer.
+- POS merupakan kumpulan posisi untuk menggenerate letak masing - masing Alien. Alien yang dihasilkan dari POS disimpan pada List aliens.
+
+Board Class memiliki fungsi utama untuk mengatur jalannya seluruh aplikasi dan fungsi. Fungsi yang dijalankan di constructor terdapat fungsi initBoard() yang digunakan untuk menginisialisasi beberapa fungsi yaitu :
+- addKeyListener() dari interface ActionListener untuk mendeteksi event keyboard yang dibuat dari inner class TAdapter yang merupakan child dari KeyAdapter.
+- terdapat setFocusable() agar window focus, lalu setBackground() untuk mengubah background window game.
+- pengaktifan ingame yang diset true agar tahu bahwa game dimulai.
+- pengaturan ukuran window game dengan setPreferredSize()
+- inisialisasi player spaceship serta inisialisasi alien dengan fungsi initAliens().
+- lalu terakhir ada timer yang mengatur Delay Refresh Rate atau Cycle Draw dari game.
+
+Terdapat fungsi paintComponent yang menggambar object untuk gameplay dengan fungsi drawObjects() jika player belum kalah dan menggambar object untuk gameover dengan fungsi drawGameOver() jika player kalah.
+Pada drawObjects() seluruh object seperti alien, spaceship dan missile diatur disini.
+
+Kemudian terdapat fungsi actionPerformed() yang akan selalu di jalankan setiap kali user mengirim Event. Fungsi ini merefresh player spaceship, alien dan missile serta melakukan fungsi pengecheckan collision jika player menang atau kalah.
+
+Ketika player spaceship terkena collisions dan aktif maka variable ingame akan diubah menjadi false sehingga akan menjalankan fungsi drawGameOver() pada fungsi paintComponent(). Jika gameover maka pemain harus exit game agar dapat memainkannya lagi.
+
+# Terima Kasih
