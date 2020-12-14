@@ -93,7 +93,7 @@ menggunakan atribut integer final INITIAL_X = 400 menandakan merupakan titik spa
 
 menggunakan Constructor dengan nama Class itu sendiri dengan parameter x dan y berupa integer. constructor ini memanggil constructor parentnnya yaitu Sprite. didalamnya juga terdapat fungsi initAlien() yang akan dijelaskan berikutnya
 
-menggunakan fungsi void initAlean()  tanpa parameter. fungsi ini digunakan sebagai sebuah inisiasi saat Alien akan di spwan. fungsi yang menginisisalisasi dan meng-load gambar lalu dengan fungsi getImageDimension() untuk merenser dan mendapatkan nilai bentuk panjang serta lebar dari gambar tersebut.
+menggunakan fungsi void initAliean()  tanpa parameter. fungsi ini digunakan sebagai sebuah inisiasi saat Alien akan di spwan. fungsi yang menginisialisasi dan meng-load gambar lalu dengan fungsi getImageDimension() untuk merenser dan mendapatkan nilai bentuk panjang serta lebar dari gambar tersebut.
 
 menggunakan fungsi void move() tanpa parameter sebagai pola aktivitas class Alien.
 fungsi untuk memindahkan Alien dengan kecepatan x = -1 per frame. fungsi yang membuat gambar bergerak ke kiri sejauh 1 arah horizontal. pergerakan konstan ke kiri hingga x kurang dari 0. didalam fungsi tersebut terdapat if dengan parameter jika x kurang dar 0 maka object alien tersebut akan di set x nya kembali INITIAL_X = 400.
