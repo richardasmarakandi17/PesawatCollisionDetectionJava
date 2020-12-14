@@ -98,3 +98,26 @@ menggunakan fungsi void initAlean()  tanpa parameter. fungsi ini digunakan sebag
 menggunakan fungsi void move() tanpa parameter sebagai pola aktivitas class Alien.
 fungsi untuk memindahkan Alien dengan kecepatan x = -1 per frame. fungsi yang membuat gambar bergerak ke kiri sejauh 1 arah horizontal. pergerakan konstan ke kiri hingga x kurang dari 0. didalam fungsi tersebut terdapat if dengan parameter jika x kurang dar 0 maka object alien tersebut akan di set x nya kembali INITIAL_X = 400.
 
+5. SpaceShip merupakan child dari Class Sprite yang mengimplementasikan posisi x dan y nya
+
+terdapat beberapa atribut pada class SpaceShip ini yaitu integer dx dan dy yang nantinya berguna sebagai nilai variable penggerak object. terus ada array namanya missiles dengan tipe List<Missile>> sebagai array untuk menyimpen objek dari Class Missile.
+
+mempunyai Constructor dengan parameter x dan y bertipe integer. isinya berupa inisialisasi menggunkan fungsi constructor parentnya berupa x dan y yang berupa integer. menggunukan fungsi initCraft() yang akan dijelaskan berikutnya.
+
+menggunakan fungsi void initCraft() tanpa parameter yang isinya untuk menginisisalisasi objek SpaceShip  dan meng-load gambar lalu dengan fungsi getImageDimension() untuk merender dan mendapatkan nilai bentuk panjang serta lebar dari gambar tersebut. fungsi ini juga menginisialisasi array missile pada objek SpaceShip untuk dimasukannyaobjek missile tersebut.
+
+menggunakan fungsi void move() tanpa parameter sebagai pola aktivitas objek tersebut. fungsi ini untuk memindahkan objek SpaceShip dengan perpindahan x sebagai horizontal dan y sebagai vertikal. terdapat 2 fungsi if untuk mencegah objek tersebut berpindah di luar dari screen.
+
+menggunakan getMissiles() bertipe List<Missile> untuk mereturn missile yang akan dipilih unutk dihapus.
+
+menggunakan fungsi void keyPressed dengan parameter KeyEvent yaitu ketika tombol di keyboard tertekan. terdapat sebuah variable key bertipe integer, dengan menggunakan fungsi getKeyCode() untuk mendapatkan code keyboard berupa nilai integer. 
+SPACE untuk menjalankan fungsi fire()
+LEFT untuk perpindahan minus x 1
+RIGHT untuk perpindahan plus x 1
+UP untuk perpindahan minus y 1
+DOWN untuk perpindahan plus y 1
+
+menggunakan fungsi fire() tanpa parameter yang berguna untuk ketika onjek menembakkan missile tersebut, maka ada objek bertipe jenis Missile baru yang dimasukkan pada array missiles. objek ini akan bertahan hingga objek ini terkena Alien atau keluar screen sebelum di hapus.
+
+menggunakan fungsi void keyReleased dengan parameter KeyEvent yaitu ketika tombol di keyboard terlepas. fungsi didalamnyaakan membuat nilai dx dan nilai dy menjadi 0 sehingga membuat objek SpaceShip tidak bergerak lagi
+
