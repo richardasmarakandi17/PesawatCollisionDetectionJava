@@ -5,7 +5,8 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 public class Sprite {
-	protected int x;
+
+    protected int x;
     protected int y;
     protected int width;
     protected int height;
