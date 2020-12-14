@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
-
     private Timer timer;
     private SpaceShip spaceship;
     private List<Alien> aliens;
@@ -28,7 +27,7 @@ public class Board extends JPanel implements ActionListener {
     private final int B_HEIGHT = 300;
     private final int DELAY = 15;
 
-    private final int[][] pos = {
+    private final int[][] POS = {
         {2380, 29}, {2500, 59}, {1380, 89},
         {780, 109}, {580, 139}, {680, 239},
         {790, 259}, {760, 50}, {790, 150},
@@ -66,7 +65,7 @@ public class Board extends JPanel implements ActionListener {
         
         aliens = new ArrayList<>();
 
-        for (int[] p : pos) {
+        for (int[] p : POS) {
             aliens.add(new Alien(p[0], p[1]));
         }
     }
