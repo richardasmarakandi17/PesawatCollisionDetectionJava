@@ -2,7 +2,7 @@ package id.ac.its.richard0017.syafiq0089.afifan0234;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.List
+import java.util.List;
 
 public class SpaceShip extends Sprite {
 
