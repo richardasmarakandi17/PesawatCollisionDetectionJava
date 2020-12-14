@@ -7,7 +7,21 @@ Merupakan sebuah tugas dari mata kuliah Pemrograman Berbasis Objek, yaitu mengap
 - Ahmad Syafiq Aqil Wafi - 05111940000089
 - Afifan Syafaqi Yahya - 05111940000234
 
-Berikut penjelasan mengenai setiap Class nya :
+Game ini adalah permainan tembak - tembakan pesawat. Pemain menjalankan SpaceShip yang memiliki misi atau objective untuk mengalahkan Alien - alien dengan cara menembak mereka dengan missile SpaceShip yang dimiliki Pemain. Apa bila Pemain dapat mengalahkan semua Alien dan selamat hingga akhir maka menang, sedangkan jika pemain terkena alien maka pemain akan kalah.
+
+# Berikut adalah tampilan gameplay dari game ini.
+
+## Tampilan Gameplay
+![Image of Gameplay](/Images/gameplay.png)
+
+## Tampilan Gameover
+![Image of Gameover](/Images/gameover.png)
+
+# Berikut adalah gambar dari diagram kelas pada game ini.
+![Image of UML Diagram](/Images/uml1.png)
+![Image of UML Diagram](/Images/uml2.png)
+
+# Berikut penjelasan mengenai setiap Class nya :
 
 ## 1. Sprite
 
@@ -137,7 +151,7 @@ timer, spaceship, aliens, ingame, ICRAFT_X, ICRAFT_Y, B_WIDTH, B_HEIGHT, DELAY, 
 - spaceship merupakan variable untuk menyimpan variable Class SpaceShip yang merupakan player utama dari game.
 - aliens merupakan kumpulan list musuh dari variable Class Alien.
 - ingame merupakan property untuk menyimpan apakah game berjalan atau tidak.
-- ICRAFT_X, ICRAFT_Y merupakan ukuran pixel dari variable spaceship.
+- ICRAFT_X, ICRAFT_Y merupakan posisi pixel dari variable spaceship.
 - B_WIDTH, B_HEIGHT merupakan ukuran pixel dari window JPanel atau bisa dibilang ukuran window game.
 - DELAY merupakan variable untuk delay timer.
 - POS merupakan kumpulan posisi untuk menggenerate letak masing - masing Alien. Alien yang dihasilkan dari POS disimpan pada List aliens.
