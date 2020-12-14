@@ -17,7 +17,6 @@ public class Alien extends Sprite {
 	        getImageDimensions();
 	    }
 	    
-	    //Alien akan kembali ke screen sisi kanan setelah hilang melewati sisi kiri layar
 	    public void move() {
 
 	        if (x < 0) {
